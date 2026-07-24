@@ -20,7 +20,6 @@ struct MemoryPatterns {
     return type<PatternFinders>{patternFinders}; \
 }
 
-    MEMORY_PATTERNS(PanelStylePatterns, panelStylePatterns)
     MEMORY_PATTERNS(SdlPatterns, sdlPatterns)
 
 #undef MEMORY_PATTERNS
@@ -105,7 +104,7 @@ constexpr auto kSoundSystemPatterns = []() consteval {
 constexpr auto kPanoramaPatterns = []() consteval {
 #define ADD_PATTERNS(patterns) addPatterns([](auto patternPool) consteval { return patterns::addPanoramaPatterns(patternPool); })
     constexpr auto builder = PatternPoolBuilder<TempPatternPool<1500, 100>>{}
-        .ADD_PATTERNS(PanelStylePatterns2)
+        .ADD_PATTERNS(PanelStylePatterns)
         .ADD_PATTERNS(PanoramaUiEnginePatterns)
         .ADD_PATTERNS(PanoramaUiPanelPatterns)
         .ADD_PATTERNS(TopLevelWindowPatterns);

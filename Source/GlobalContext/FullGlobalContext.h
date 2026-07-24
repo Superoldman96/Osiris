@@ -44,7 +44,7 @@ struct FullGlobalContext {
         : patternSearchResults{memoryPatterns}
         , fileNameSymbolTableState{tier0Dll}
         , memAllocState{tier0Dll}
-        , stylePropertySymbolsAndVMTs{StylePropertySymbolMap{memoryPatterns.panelStylePatterns().stylePropertiesSymbols()}, VmtFinder{panoramaDLL.getVmtFinderParams()}}
+        , stylePropertySymbolsAndVMTs{StylePropertySymbolMap{patternSearchResults.get<PointerToStylePropertySymbols>()}, VmtFinder{panoramaDLL.getVmtFinderParams()}}
         , hooks{
             peepEventsHook,
             patternSearchResults.get<ViewRenderPointer>(),
